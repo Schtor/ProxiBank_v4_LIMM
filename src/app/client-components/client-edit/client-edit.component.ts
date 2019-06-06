@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ClientService } from 'src/app/service/client.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { Client } from 'src/app/model/client';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-client-edit',
@@ -15,23 +16,41 @@ export class ClientEditComponent implements OnInit {
     idClient = this.activatedRoute.snapshot.params.idClient;
     clientUpdated: {};
 
-    constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) {
+    selectedClient: {};
+
+    myForm = this.fb.group({
+        firstName: [ '', Validators.required],
+        lastName: ['', Validators.required]
+    });
+
+    constructor(private fb: FormBuilder, private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) {
         this.clientUpdated = new Client();
-        // this.clientUpdated.account = new Account();
+        this.selectedClient = new Client();
     }
 
     ngOnInit() {
         this.service.getClient(this.idClient).subscribe((data: {}) => {
-            this.clientUpdated = data;
+            this.selectedClient = data;
         });
+
     }
 
-    updateClient() {
+
+    onSubmit(value: string): void {
+        console.warn(this.myForm.value.firstName);
+
+    }
+
+    updateClient(firstName: HTMLInputElement, lastName: HTMLInputElement, idClient: number) {
+        const c = new Client(firstName.value, lastName.value);
+        c.idClient = idClient;
         if (window.confirm('Do you want to update this client?')) {
-            this.service.updateClient(this.idClient, this.clientUpdated).subscribe(data => {
+            this.service.updateClient(c).subscribe(data => {
+                this.service.getClients();
                 this.router.navigate(['/client-list']);
             });
         }
+
 
     }
 }

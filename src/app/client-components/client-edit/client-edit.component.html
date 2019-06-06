@@ -1,28 +1,51 @@
 <p>
-  client-edit works!
+    client-edit works!
 </p>
 
-
+<!-- 
 <div class="container custom-container">
     <div class="col-md-12">
         <form #mainForm="ngForm">
             <h3 class="mb-3 text-center">Update Client</h3>
 
             <div class="form-group">
-                
-                
-                <input type="text" [(ngModel)]="clientUpdated.firstName" name="firstName" [value]="clientUpdated.firstName" class="form-control" placeholder="First Name">
-                
-                <input type="text" [(ngModel)]="clientUpdated.lastName" name="lastName" [value]="clientUpdated.lastName" class="form-control" placeholder="Last Name">
 
 
+                <input type="text" [(ngModel)]="clientUpdated.firstName" name="firstName"
+                    [value]="clientUpdated.firstName" class="form-control" placeholder="First Name">
+
+                <input type="text" [(ngModel)]="clientUpdated.lastName" name="lastName" [value]="clientUpdated.lastName"
+                    class="form-control" placeholder="Last Name">
+
+ -->
 
 
                 <!-- <input type="text" required [(ngModel)]="clientUpdated.login" name="login" [value]="clientUpdated.login" class="form-control" placeholder="Login"> -->
 
 
-                <button class="btn btn-success btn-lg btn-block" (click)="updateClient()">Update Client</button>
+                <!-- <button class="btn btn-success btn-lg btn-block" (click)="updateClient()">Update Client</button>
             </div>
         </form>
+    </div>
+</div> -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Edition client</h2>
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                    <label>First Name:
+                        <input value={{selectedClient.firstName}} type="text" #newFirstName formControlName="firstName">
+                    </label>
+
+                    <p></p> <label>Last Name:
+                        <input value={{selectedClient.lastName}} type="text" #newLastName formControlName="lastName">
+
+                    </label>
+                    <p></p> <button type="submit" (click)="updateClient(newFirstName, newLastName, selectedClient.idClient )" [disabled]="!myForm.valid">Update</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

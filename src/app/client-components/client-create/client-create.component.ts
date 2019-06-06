@@ -4,6 +4,7 @@ import { Client } from 'src/app/model/client';
 import { Route } from '@angular/compiler/src/core';
 import { Router } from '@angular/router';
 import { AccountCreateComponent } from 'src/app/account-components/account-create/account-create.component';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-client-create',
@@ -13,18 +14,29 @@ import { AccountCreateComponent } from 'src/app/account-components/account-creat
 })
 export class ClientCreateComponent implements OnInit {
 
-    @Input()
-    clientAdded = new Client();
+    clientAdded: {};
 
-    constructor(private service: ClientService, public router: Router) {
-        //   this.clientAdded.account = new Account();
+    myForm = this.fb.group({
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required]
+    });
+
+
+    constructor(private fb: FormBuilder, private service: ClientService, public router: Router) {
+        this.clientAdded = new Client();
+        // this.clientAdded.account = new Account();
     }
 
     ngOnInit() {
     }
+    onSubmit(value: string): void {
+        console.warn(this.myForm.value.firstName);
 
-    addClient(dataClient) {
+    }
+    addClient(firstName: HTMLInputElement, lastName: HTMLInputElement) {
+        this.clientAdded = new Client(firstName.value, lastName.value)
         this.service.createClient(this.clientAdded).subscribe((data: {}) => {
+            this.service.getClients();
             this.router.navigate(['/client-list']);
         });
     }

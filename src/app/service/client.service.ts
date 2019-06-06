@@ -32,11 +32,11 @@ export class ClientService {
         return this.http.delete<Client>(this.endpoint + '/clients/' + idClient, this.httpOptions);
     }
 
-    createClient(Client): Observable<Client> {
-        return this.http.post<Client>(this.endpoint + '/clients', JSON.stringify(Client), this.httpOptions);
+    createClient(client): Observable<Client> {
+        return this.http.post<Client>(this.endpoint + '/clients', JSON.stringify(client), this.httpOptions);
     }
 
-    updateClient(idClient, client): Observable<Client> {
+    updateClient(client): Observable<Client> {
         return this.http.put<Client>(this.endpoint + '/clients/', JSON.stringify(client), this.httpOptions);
     }
 }

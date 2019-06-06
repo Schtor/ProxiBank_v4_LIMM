@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   client-create works!
 </p>
 <div class="container custom-container">
@@ -15,10 +15,33 @@
 
 
 
-                <!-- <input type="text" required [(ngModel)]="clientAdded.login" name="login"  class="form-control" placeholder="Login"> -->
+                 <input type="text" required [(ngModel)]="clientAdded.login" name="login"  class="form-control" placeholder="Login"> -->
 
-                <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Create Client</button>
+                <!-- <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Create Client</button>
             </div>
         </form>
+    </div>
+</div> --> 
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Creer Client</h2>
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                    <label>First Name:
+                        <input #newFirstName type="text" formControlName="firstName">
+
+                    </label>
+
+                    <p></p> <label>Last Name:
+                        <input #newLastName type="text" formControlName="lastName">
+
+                    </label>
+                    <p></p> <button type="submit" (click)="addClient(newFirstName, newLastName)" [disabled]="!myForm.valid">Create</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
