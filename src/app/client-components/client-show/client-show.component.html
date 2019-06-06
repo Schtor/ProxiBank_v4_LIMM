@@ -1,3 +1,21 @@
 <p>
   client-show works!
 </p>
+<div class="container custom-container">
+  <div class="col-md-12">
+    
+ 
+ <div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+       <h5 class="card-title">{{client.id}}</h5>
+    <h5 class="card-title">{{client.prenom}} {{client.nom}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Login</h6><p class="card-text">{{client.login}}</p> 
+   <!-- <h6 class="card-subtitle mb-2 text-muted">Address</h6><p class="card-text">{{client.adresse.numero}} {{client.adresse.rue}} {{client.adresse.ville}} </p>  -->
+    <a class="btn btn-primary" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
+  </div>
+</div>
+
+    
+  </div>
+</div>

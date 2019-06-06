@@ -1,9 +1,10 @@
 export class Client {
 
     id: number;
-    title: string;
-    link: string;
-    votes: number;
+    nom: string;
+    prenom: string;
+    login: string;
+    motDePasse: string;
 
 }
 

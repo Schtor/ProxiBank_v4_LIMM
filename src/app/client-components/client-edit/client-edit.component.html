@@ -1,3 +1,27 @@
 <p>
   client-edit works!
 </p>
+
+
+<div class="container custom-container">
+    <div class="col-md-12">
+        <form #mainForm="ngForm">
+            <h3 class="mb-3 text-center">Update Client</h3>
+
+            <div class="form-group">
+                <input type="text" required [(ngModel)]="clientUpdated.nom" name="nom" [value]="clientUpdated.nom" class="form-control" placeholder="Nom">
+
+
+
+                <input type="text" required [(ngModel)]="clientUpdated.prenom" name="prenom" [value]="clientUpdated.prenom" class="form-control" placeholder="Prenom">
+
+
+
+                <input type="text" required [(ngModel)]="clientUpdated.login" name="login" [value]="clientUpdated.login" class="form-control" placeholder="Login">
+
+
+                <button class="btn btn-success btn-lg btn-block" (click)="updateClient()">Update Client</button>
+            </div>
+        </form>
+    </div>
+</div>

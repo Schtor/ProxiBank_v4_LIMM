@@ -18,6 +18,12 @@ export class ClientListComponent implements OnInit {
 
     }
 
+    deleteClient(id) {
+        if (window.confirm('Do you really want to delete client number ' + id + ' ?')) {
+            this.service.deleteClient(id).subscribe(data => this.getClients());
+        }
+    }
+
     ngOnInit() {
         this.getClients();
     }
