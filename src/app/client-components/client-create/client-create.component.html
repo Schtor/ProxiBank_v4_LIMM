@@ -7,15 +7,15 @@
             <h3 class="mb-3 text-center">Create Client</h3>
 
             <div class="form-group">
-                <input type="text" required [(ngModel)]="clientAdded.nom" name="nom"  class="form-control" placeholder="Nom">
+                <input type="text" required [(ngModel)]="clientAdded.firstName" name="firstName"  class="form-control" placeholder="First Name">
 
 
 
-                <input type="text" required [(ngModel)]="clientAdded.prenom" name="prenom"  class="form-control" placeholder="Prenom">
+                <input type="text" required [(ngModel)]="clientAdded.lastName" name="lastName"  class="form-control" placeholder="Last Name">
 
 
 
-                <input type="text" required [(ngModel)]="clientAdded.login" name="login"  class="form-control" placeholder="Login">
+                <!-- <input type="text" required [(ngModel)]="clientAdded.login" name="login"  class="form-control" placeholder="Login"> -->
 
                 <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Create Client</button>
             </div>

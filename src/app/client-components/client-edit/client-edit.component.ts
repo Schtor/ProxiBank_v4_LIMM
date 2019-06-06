@@ -12,7 +12,7 @@ import { Client } from 'src/app/model/client';
 })
 export class ClientEditComponent implements OnInit {
 
-    id = this.activatedRoute.snapshot.params.id;
+    idClient = this.activatedRoute.snapshot.params.idClient;
     clientUpdated: {};
 
     constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) {
@@ -21,14 +21,14 @@ export class ClientEditComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.service.getClient(this.id).subscribe((data: {}) => {
+        this.service.getClient(this.idClient).subscribe((data: {}) => {
             this.clientUpdated = data;
         });
     }
 
     updateClient() {
         if (window.confirm('Do you want to update this client?')) {
-            this.service.updateClient(this.id, this.clientUpdated).subscribe(data => {
+            this.service.updateClient(this.idClient, this.clientUpdated).subscribe(data => {
                 this.router.navigate(['/client-list']);
             });
         }

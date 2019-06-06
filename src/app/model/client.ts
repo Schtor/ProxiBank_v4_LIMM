@@ -1,10 +1,10 @@
 export class Client {
 
-    id: number;
-    nom: string;
-    prenom: string;
+    idClient: number;
+    lastName: string;
+    firstName: string;
     login: string;
-    motDePasse: string;
+    password: string;
 
 }
 

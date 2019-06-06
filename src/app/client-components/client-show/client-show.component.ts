@@ -12,13 +12,13 @@ export class ClientShowComponent implements OnInit {
 
     client: any = {};
 
-    id = this.activatedRoute.snapshot.params.id;
+    idClient = this.activatedRoute.snapshot.params.idClient;
 
 
     constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
     showClient() {
-        this.service.getClient(this.id).subscribe(data => this.client = data, error => console.log('error in system'));
+        this.service.getClient(this.idClient).subscribe(data => this.client = data, error => console.log('error in system'));
 
     }
 

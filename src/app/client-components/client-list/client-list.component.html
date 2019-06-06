@@ -3,14 +3,14 @@
 </p>
 
 <ul>
+        <h3>Liste Clients</h3>
 <li *ngFor="let c of clients"  class="list-group-item">
 
-    <h3>Liste Clients</h3>
-    <p>{{c.id}}</p>
-    <p>{{c.nom}}</p>
-    <a class="btn btn-info mr-1" routerLinkActive="active" routerLink="/client-show/{{c.id}}">Show</a>
-    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Delete</a>
-    <a class="btn btn-warning mr-1" routerLinkActive="active" routerLink="/client-edit/{{c.id}}">Update</a>
+    <p>{{c.idClient}}</p>
+    <p>{{c.lastName}}</p>
+    <a class="btn btn-info mr-1" routerLinkActive="active" routerLink="/client-show/{{c.idClient}}">Show</a>
+    <a class="btn btn-danger mr-1" (click)="deleteClient(c.idClient)">Delete</a>
+    <a class="btn btn-warning mr-1" routerLinkActive="active" routerLink="/client-edit/{{c.idClient}}">Update</a>
 </li>
 
 
