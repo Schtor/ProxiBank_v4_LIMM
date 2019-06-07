@@ -35,9 +35,6 @@ export class ClientEditComponent implements OnInit {
 
     }
 
-    clearField() {
-
-    }
     getClients() {
         this.service.getClients().subscribe(data => this.clients = data, error => console.log('error in service'));
 

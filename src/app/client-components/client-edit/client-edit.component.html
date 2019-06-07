@@ -39,7 +39,7 @@
                     <input value={{selectedClient.lastName}} type="text" #newLastName formControlName="lastName">
                 </label>
               <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
-                <button class="btn btn-warning" type="submit"
+               &nbsp; <button class="btn btn-warning" type="submit"
                     (click)="updateClient(newFirstName, newLastName, selectedClient.idClient )"
                     [disabled]="!myForm.valid">Update</button>
             </form>

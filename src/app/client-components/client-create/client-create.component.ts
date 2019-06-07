@@ -15,6 +15,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ClientCreateComponent implements OnInit {
 
     clientAdded: {};
+    clientType: boolean;
 
     myForm = this.fb.group({
         firstName: ['', Validators.required],
@@ -29,10 +30,19 @@ export class ClientCreateComponent implements OnInit {
 
     ngOnInit() {
     }
+
     onSubmit(value: string): void {
         console.warn(this.myForm.value.firstName);
-
     }
+
+    onSelect() {
+        this.clientType = true;
+    }
+
+    offSelect() {
+        this.clientType = false;
+    }
+
     addClient(firstName: HTMLInputElement, lastName: HTMLInputElement) {
         this.clientAdded = new Client(firstName.value, lastName.value)
         this.service.createClient(this.clientAdded).subscribe((data: {}) => {
