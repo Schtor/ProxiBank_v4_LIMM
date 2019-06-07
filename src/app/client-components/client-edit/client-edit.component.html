@@ -40,7 +40,7 @@
                 </label>
               <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
                &nbsp; <button class="btn btn-warning" type="submit"
-                    (click)="updateClient(newFirstName, newLastName, selectedClient.idClient )"
+                    (click)="updateClient(newFirstName, newLastName, selectedClient.id )"
                     [disabled]="!myForm.valid">Update</button>
             </form>
         </div>

@@ -14,25 +14,48 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ClientCreateComponent implements OnInit {
 
-    clientAdded: {};
+    customerAdded: any = {};
+    companyAdded: any = {};
     clientType: boolean;
 
-    myForm = this.fb.group({
+    myFormCustomer = this.fb.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required]
     });
 
+    myFormCompany = this.fb.group({
+        companyName: ['', Validators.required],
+        siretNumber: ['', Validators.required]
+    });
+
 
     constructor(private fb: FormBuilder, private service: ClientService, public router: Router) {
-        this.clientAdded = new Client();
+        this.companyAdded = new Client();
+        this.customerAdded = new Client();
         // this.clientAdded.account = new Account();
     }
 
     ngOnInit() {
     }
 
-    onSubmit(value: string): void {
-        console.warn(this.myForm.value.firstName);
+    onSubmitCustomer(): void {
+        this.customerAdded.firstName = this.myFormCustomer.value.firstName;
+        this.customerAdded.lastName = this.myFormCustomer.value.lastName;
+        this.service.createClient(this.customerAdded).subscribe((data: {}) => {
+            this.service.getClients();
+            this.router.navigate(['/client-list']);
+        });
+        console.warn(this.myFormCustomer.value.firstName);
+    }
+
+    onSubmitCompany(value: string): void {
+        this.companyAdded.companyName = this.myFormCompany.value.companyName;
+        this.companyAdded.siretNumber = this.myFormCompany.value.siretNumber;
+        this.service.createClient(this.companyAdded).subscribe((data: {}) => {
+            this.service.getClients();
+            this.router.navigate(['/client-list']);
+        });
+        console.warn(this.myFormCompany.value.companyName);
     }
 
     onSelect() {
@@ -43,12 +66,11 @@ export class ClientCreateComponent implements OnInit {
         this.clientType = false;
     }
 
-    addClient(firstName: HTMLInputElement, lastName: HTMLInputElement) {
-        this.clientAdded = new Client(firstName.value, lastName.value)
-        this.service.createClient(this.clientAdded).subscribe((data: {}) => {
-            this.service.getClients();
-            this.router.navigate(['/client-list']);
-        });
-    }
-
+    // addCompany(companyName: HTMLInputElement, siretNumber: HTMLInputElement) {
+    //     this.clientAdded = new Client(companyName.value, siretNumber.value)
+    //     this.service.createClient(this.clientAdded).subscribe((data: {}) => {
+    //         this.service.getClients();
+    //         this.router.navigate(['/client-list']);
+    //     });
+    // }
 }

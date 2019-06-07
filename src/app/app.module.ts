@@ -21,6 +21,10 @@ import { InvestmentComponent } from './operations-components/investment/investme
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IdentificationComponent } from './operations-components/identification/identification.component';
+import { CompanyEditComponent } from './client-components/company-edit/company-edit.component';
+import { CustomerEditComponent } from './client-components/customer-edit/customer-edit.component';
+
+
 
 @NgModule({
     declarations: [
@@ -40,7 +44,9 @@ import { IdentificationComponent } from './operations-components/identification/
         TransferComponent,
         AuditComponent,
         InvestmentComponent,
-        IdentificationComponent
+        IdentificationComponent,
+        CompanyEditComponent,
+        CustomerEditComponent
     ],
     imports: [
         BrowserModule,

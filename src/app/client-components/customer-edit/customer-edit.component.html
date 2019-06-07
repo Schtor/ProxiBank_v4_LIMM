@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Edition particulier</h2>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(selectedCustomer.id)">
+
+                <label>Prenom:
+                    <input value={{selectedCustomer.firstName}} type="text" formControlName="firstName">
+                </label>
+
+                <p></p> <label>Nom:
+                    <input value={{selectedCustomer.lastName}} type="text" formControlName="lastName">
+                </label>
+              <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
+               &nbsp; <button class="btn btn-warning" type="submit"
+                    [disabled]="!myForm.valid">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

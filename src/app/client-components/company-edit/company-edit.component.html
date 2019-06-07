@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Edition entreprise</h2>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(selectedCompany.id)">
+
+                <label>Nom de l'Entreprise:
+                    <input value={{selectedCompany.companyName}} type="text" formControlName="companyName">
+                </label>
+
+                <p></p> <label>Numero SIRET:
+                    <input value={{selectedCompany.siretNumber}} type="text" formControlName="siretNumber">
+                </label>
+              <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
+               &nbsp; <button class="btn btn-warning" type="submit"
+                    [disabled]="!myForm.valid">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -16,25 +16,29 @@ import { AccountShowComponent } from './account-components/account-show/account-
 import { TransferComponent } from './operations-components/transfer/transfer.component';
 import { AuditComponent } from './operations-components/audit/audit.component';
 import { InvestmentComponent } from './operations-components/investment/investment.component';
+import { CompanyEditComponent } from './client-components/company-edit/company-edit.component';
+import { CustomerEditComponent } from './client-components/customer-edit/customer-edit.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'identification' },
     { path: 'identification', component: IdentificationComponent },
     { path: 'client-create', component: ClientCreateComponent },
-    { path: 'client-edit/:idClient', component: ClientEditComponent },
+    { path: 'client-edit/:id', component: ClientEditComponent },
     { path: 'client-list', component: ClientListComponent },
-    { path: 'client-show/:idClient', component: ClientShowComponent },
+    { path: 'client-show/:id', component: ClientShowComponent },
     { path: 'advisor-create', component: AdvisorCreateComponent },
-    { path: 'advisor-edit/:idAdvisor', component: AdvisorEditComponent },
+    { path: 'advisor-edit/:id', component: AdvisorEditComponent },
     { path: 'advisor-list', component: AdvisorListComponent },
-    { path: 'advisor-show/:idAdvisor', component: AdvisorShowComponent },
+    { path: 'advisor-show/:id', component: AdvisorShowComponent },
     { path: 'account-create', component: AccountCreateComponent },
-    { path: 'account-edit/:idAccount', component: AccountEditComponent },
+    { path: 'account-edit/:id', component: AccountEditComponent },
     { path: 'account-list', component: AccountListComponent },
-    { path: 'account-show/:idAccount', component: AccountShowComponent },
+    { path: 'account-show/:id', component: AccountShowComponent },
     { path: 'transfer', component: TransferComponent },
     { path: 'audit', component: AuditComponent },
-    { path: 'investment', component: InvestmentComponent }
+    { path: 'investment', component: InvestmentComponent },
+    { path: 'company-edit/:id', component: CompanyEditComponent},
+    { path: 'customer-edit/:id', component: CustomerEditComponent}
 ];
 
 @NgModule({

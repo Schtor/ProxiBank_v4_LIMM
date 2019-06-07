@@ -40,9 +40,9 @@ export class ClientEditComponent implements OnInit {
 
     }
 
-    deleteClient(idClient) {
-        if (window.confirm('Do you really want to delete client number ' + idClient + ' ?')) {
-            this.service.deleteClient(idClient).subscribe(data => {
+    deleteClient(id) {
+        if (window.confirm('Do you really want to delete client number ' + id + ' ?')) {
+            this.service.deleteClient(id).subscribe(data => {
                 this.getClients();
                 this.router.navigate(['/client-list']);
             });
@@ -54,9 +54,9 @@ export class ClientEditComponent implements OnInit {
 
     }
 
-    updateClient(firstName: HTMLInputElement, lastName: HTMLInputElement, idClient: number) {
+    updateClient(firstName: HTMLInputElement, lastName: HTMLInputElement, id: number) {
         const c = new Client(firstName.value, lastName.value);
-        c.idClient = idClient;
+        c.id = id;
         if (window.confirm('Do you want to update this client?')) {
             this.service.updateClient(c).subscribe(data => {
                 this.service.getClients();

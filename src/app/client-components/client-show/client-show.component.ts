@@ -13,13 +13,13 @@ export class ClientShowComponent implements OnInit {
     client: any = {};
     clients: any = [];
 
-    idClient = this.activatedRoute.snapshot.params.idClient;
+    id = this.activatedRoute.snapshot.params.id;
 
 
     constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
     showClient() {
-        this.service.getClient(this.idClient).subscribe(data => this.client = data, error => console.log('error in system'));
+        this.service.getClient(this.id).subscribe(data => this.client = data, error => console.log('error in system'));
 
     }
 
@@ -28,9 +28,9 @@ export class ClientShowComponent implements OnInit {
 
     }
 
-    deleteClient(idClient) {
-        if (window.confirm('Do you really want to delete client number ' + idClient + ' ?')) {
-            this.service.deleteClient(idClient).subscribe(data => {
+    deleteClient(id) {
+        if (window.confirm('Do you really want to delete client number ' + id + ' ?')) {
+            this.service.deleteClient(id).subscribe(data => {
                 this.getClients();
                 this.router.navigate(['/client-list']);
             });

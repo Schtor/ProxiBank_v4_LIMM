@@ -34,29 +34,49 @@
 </ul>
 
 
-<div class="container">
+<div class="container" *ngIf="!clientType">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]="myFormCustomer" (ngSubmit)="onSubmitCustomer()">
 
                 <label>First Name:
-                    <input #newFirstName type="text" formControlName="firstName">
+                    <input type="text" formControlName="firstName">
 
                 </label>
 
                 <p></p> <label>Last Name:
-                    <input #newLastName type="text" formControlName="lastName">
+                    <input type="text" formControlName="lastName">
 
                 </label>
 
-                <p></p> <label *ngIf="clientType">SIRET:
-                    <input #newSiret type="text" formControlName="SIRET">
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back to client
+                    list</a>
+                &nbsp; <button class="btn btn-success" type="submit"
+                     [disabled]="!myFormCustomer.valid">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="clientType">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="myFormCompany" (ngSubmit)="onSubmitCompany()">
+
+                <p></p> <label >Nom de l'Entreprise:
+                    <input #newCompanyName type="text" formControlName="companyName">
+
+                </label>
+
+                <p></p> <label >SIRET:
+                    <input #newSiretNumber type="text" formControlName="siretNumber">
 
                 </label>
                 <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back to client
                     list</a>
-                &nbsp; <button class="btn btn-success" type="submit" (click)="addClient(newFirstName, newLastName)"
-                    [disabled]="!myForm.valid">Create</button>
+
+                &nbsp; <button *ngIf="clientType" class="btn btn-success" type="submit"
+                   [disabled]="!myFormCompany.valid">Create</button>
             </form>
         </div>
     </div>
