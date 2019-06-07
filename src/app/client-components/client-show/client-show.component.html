@@ -1,21 +1,13 @@
-<p>
-  client-show works!
-</p>
-<div class="container custom-container">
-  <div class="col-md-12">
-    
- 
- <div class="card" style="width: 18rem;">
 
+
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">{{client.lastName}} {{client.firstName}} </div>
   <div class="card-body">
-       <h5 class="card-title">{{client.idClient}}</h5>
-    <h5 class="card-title">{{client.firstName}} {{client.lastName}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Login</h6><p class="card-text">{{client.login}}</p> 
-   <!-- <h6 class="card-subtitle mb-2 text-muted">Address</h6><p class="card-text">{{client.adresse.numero}} {{client.adresse.rue}} {{client.adresse.ville}} </p>  -->
-    <a class="btn btn-primary" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
-  </div>
+    <h5 class="card-title">Adresse</h5>
+    <p class="card-text"></p>
+<h5 class="card-title">Comptes</h5>  
+<h5 class="card-title">Cartes</h5>
 </div>
-
-    
-  </div>
 </div>
+<a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
+    <button class="btn btn-danger mr-1" (click)="deleteClient(client.idClient)">Delete</button>

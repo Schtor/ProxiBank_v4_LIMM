@@ -13,13 +13,13 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ClientEditComponent implements OnInit {
 
+    clients: any = [];
     idClient = this.activatedRoute.snapshot.params.idClient;
     clientUpdated: {};
-
     selectedClient: {};
 
     myForm = this.fb.group({
-        firstName: [ '', Validators.required],
+        firstName: ['', Validators.required],
         lastName: ['', Validators.required]
     });
 
@@ -35,6 +35,22 @@ export class ClientEditComponent implements OnInit {
 
     }
 
+    clearField() {
+
+    }
+    getClients() {
+        this.service.getClients().subscribe(data => this.clients = data, error => console.log('error in service'));
+
+    }
+
+    deleteClient(idClient) {
+        if (window.confirm('Do you really want to delete client number ' + idClient + ' ?')) {
+            this.service.deleteClient(idClient).subscribe(data => {
+                this.getClients();
+                this.router.navigate(['/client-list']);
+            });
+        }
+    }
 
     onSubmit(value: string): void {
         console.warn(this.myForm.value.firstName);

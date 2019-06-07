@@ -1,17 +1,29 @@
-<p>
-  client-list works!
-</p>
 
-<ul>
+
+    <div class="header d-flex justify-content-center">
         <h3>Liste Clients</h3>
-<li *ngFor="let c of clients"  class="list-group-item">
+        </div>
+<div class="d-flex justify-content-center">
+   
+<table class="table col-sm-4">
+    <thead class="thead-light">
+        <tr>
 
-    <p>{{c.idClient}}</p>
-    <p>{{c.lastName}}</p>
-    <a class="btn btn-info mr-1" routerLinkActive="active" routerLink="/client-show/{{c.idClient}}">Show</a>
-    <a class="btn btn-danger mr-1" (click)="deleteClient(c.idClient)">Delete</a>
-    <a class="btn btn-warning mr-1" routerLinkActive="active" routerLink="/client-edit/{{c.idClient}}">Update</a>
-</li>
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of clients">
+            <td>{{c.firstName}}</td>
+            <td>{{c.lastName}}</td>
+            <td><a class="btn btn-info mr-1" routerLinkActive="active" routerLink="/client-show/{{c.idClient}}">Show</a>
+            <a class="btn btn-danger mr-1" (click)="deleteClient(c.idClient)">Delete</a>
+            <a class="btn btn-warning mr-1" routerLinkActive="active" routerLink="/client-edit/{{c.idClient}}">Update</a></td>
 
 
-</ul>
+        </tr>
+    </tbody>
+</table>
+</div>

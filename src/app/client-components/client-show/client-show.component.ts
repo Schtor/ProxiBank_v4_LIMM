@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ClientShowComponent implements OnInit {
 
     client: any = {};
+    clients: any = [];
 
     idClient = this.activatedRoute.snapshot.params.idClient;
 
@@ -20,6 +21,20 @@ export class ClientShowComponent implements OnInit {
     showClient() {
         this.service.getClient(this.idClient).subscribe(data => this.client = data, error => console.log('error in system'));
 
+    }
+
+    getClients() {
+        this.service.getClients().subscribe(data => this.clients = data, error => console.log('error in service'));
+
+    }
+
+    deleteClient(idClient) {
+        if (window.confirm('Do you really want to delete client number ' + idClient + ' ?')) {
+            this.service.deleteClient(idClient).subscribe(data => {
+                this.getClients();
+                this.router.navigate(['/client-list']);
+            });
+        }
     }
 
     ngOnInit() {
