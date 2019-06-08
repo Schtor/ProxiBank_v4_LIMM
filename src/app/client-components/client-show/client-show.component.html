@@ -1,13 +1,89 @@
-
-
 <div class="card bg-light mb-3" style="max-width: 18rem;">
-  <div class="card-header">{{client.lastName}} {{client.firstName}} </div>
-  <div class="card-body">
-    <h5 class="card-title">Adresse</h5>
-    <p class="card-text"></p>
-<h5 class="card-title">Comptes</h5>  
-<h5 class="card-title">Cartes</h5>
+    <div class="card-header" *ngIf="client.lastName">{{client.lastName}} {{client.firstName}} </div>
+    <div class="card-header" *ngIf="client.companyName">{{client.companyName}} {{client.siretNumber}} </div>
+    <div class="card-body">
+        <h5 class="card-title">Informations</h5>
+        <p class="card-text">{{client.login}}</p>
+        <p class="card-text">{{client.phone}}</p>
+        <p class="card-text">{{client.email}}</p>
+        <h5 class="card-title">Adresse</h5>
+        <p class="card-text">{{client.addressClient}}</p>
+        <p class="card-text">{{client.zipCodeClient}} {{client.cityClient}}</p>
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-0">
+
+    </div>
+    <div class="col-6" id="parent">
+        <div id="child">
+            <div class="header d-flex justify-content-center">
+                <h3>Liste Comptes Courants</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="header d-flex justify-content-center">
+            <h3>Liste Comptes Epargne</h3>
+        </div>
+    </div>
+    <div class="col-1">
+
+       
+    </div>
 </div>
-<a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
-    <button class="btn btn-danger mr-1" (click)="deleteClient(client.id)">Delete</button>
+
+<div class="d-flex justify-content-center">
+
+    <table class="table col-sm-4">
+        <thead class="thead-light">
+            <tr>
+
+                <th scope="col">Date de creation</th>
+                <th scope="col">Numero de compte</th>
+                <th scope="col">Autorisation decouvert</th>
+                <th scope="col">Solde</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of client.accountList">
+
+                <td *ngIf="a.overdraftAuthorization && !a.defaultSalaryRate">{{a.openingAccountDate}}</td>
+                <td *ngIf="a.overdraftAuthorization && !a.defaultSalaryRate">{{a.accountNumber}}</td>
+                <td *ngIf="a.overdraftAuthorization && !a.defaultSalaryRate">{{a.overdraftAuthorization}}</td>
+                <td *ngIf="a.overdraftAuthorization && !a.defaultSalaryRate">{{a.accountBalance}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+
+    <table class="table col-sm-4">
+        <thead class="thead-light">
+            <tr>
+
+                <th scope="col">Date de creation</th>
+                <th scope="col">Numero de compte</th>
+                <th scope="col">Taux de remuneration</th>
+                <th scope="col">Solde</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let a of client.accountList">
+
+                    <td *ngIf="!a.overdraftAuthorization && a.defaultSalaryRate">{{a.openingAccountDate}}</td>
+                    <td *ngIf="!a.overdraftAuthorization && a.defaultSalaryRate">{{a.accountNumber}}</td>
+                <td *ngIf="!a.overdraftAuthorization && a.defaultSalaryRate">{{a.defaultSalaryRate}}</td>
+                <td *ngIf="!a.overdraftAuthorization && a.defaultSalaryRate">{{a.accountBalance}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
+&nbsp; <button class="btn btn-danger mr-1" (click)="deleteClient(client.id)">Suprimer client</button>

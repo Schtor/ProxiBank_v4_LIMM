@@ -1,28 +1,3 @@
-<!-- <p>
-  client-create works!
-</p>
-<div class="container custom-container">
-    <div class="col-md-12">
-        <form #mainForm="ngForm">
-            <h3 class="mb-3 text-center">Create Client</h3>
-
-            <div class="form-group">
-                <input type="text" required [(ngModel)]="clientAdded.firstName" name="firstName"  class="form-control" placeholder="First Name">
-
-
-
-                <input type="text" required [(ngModel)]="clientAdded.lastName" name="lastName"  class="form-control" placeholder="Last Name">
-
-
-
-                 <input type="text" required [(ngModel)]="clientAdded.login" name="login"  class="form-control" placeholder="Login"> -->
-
-<!-- <button class="btn btn-success btn-lg btn-block" (click)="addClient()">Create Client</button>
-            </div>
-        </form>
-    </div>
-</div> -->
-
 <h2>Creer Client</h2>
 <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -39,20 +14,71 @@
         <div class="col-md-6 offset-md-3">
             <form [formGroup]="myFormCustomer" (ngSubmit)="onSubmitCustomer()">
 
-                <label>First Name:
+                <h3>Informations Generales</h3>
+
+                <label>Prenom:
                     <input type="text" formControlName="firstName">
-
                 </label>
 
-                <p></p> <label>Last Name:
+                <p></p> <label>Nom:
                     <input type="text" formControlName="lastName">
-
                 </label>
 
-                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back to client
-                    list</a>
-                &nbsp; <button class="btn btn-success" type="submit"
-                     [disabled]="!myFormCustomer.valid">Create</button>
+                <p></p> <label>Login:
+                    <input type="text" formControlName="login">
+                </label>
+
+                <p></p> <label>Numero de telephone:
+                    <input type="text" formControlName="phone">
+                </label>
+                <p></p> <label>Email:
+                    <input type="text" formControlName="email">
+                </label>
+
+                <p></p> <label>Adresse:
+                    <input type="text" formControlName="addressClient">
+                </label>
+                <p></p> <label>Code postal:
+                    <input type="text" formControlName="zipCodeClient">
+                </label>
+
+                <p></p> <label>Ville:
+                    <input type="text" formControlName="cityClient">
+                </label>
+
+                <h3>Comptes</h3>
+                <h4>Compte Courant</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDateCurrent">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumberCurrent">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalanceCurrent">
+                </label>
+                <p></p> <label>Autorisation de decouvert:
+                    <input type="text" formControlName="overdraftAuthorization">
+                </label>
+
+                <h4>Compte Epargne</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDateSavings">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumberSavings">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalanceSavings">
+                </label>
+                <p></p> <label>Taux de remuneration:
+                    <input type="text" formControlName="defaultSalaryRate">
+                </label>
+
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back</a>
+                &nbsp; <button class="btn btn-success" type="submit" [disabled]="!myFormCustomer.valid">Create</button>
             </form>
         </div>
     </div>
@@ -63,20 +89,73 @@
         <div class="col-md-6 offset-md-3">
             <form [formGroup]="myFormCompany" (ngSubmit)="onSubmitCompany()">
 
-                <p></p> <label >Nom de l'Entreprise:
-                    <input #newCompanyName type="text" formControlName="companyName">
+                <p></p> <label>Nom de l'Entreprise:
+                    <input type="text" formControlName="companyName">
 
                 </label>
 
-                <p></p> <label >SIRET:
-                    <input #newSiretNumber type="text" formControlName="siretNumber">
+                <p></p> <label>SIRET:
+                    <input type="text" formControlName="siretNumber">
 
                 </label>
-                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back to client
-                    list</a>
+
+                <p></p> <label>Login:
+                    <input type="text" formControlName="login">
+                </label>
+
+                <p></p> <label>Numero de telephone:
+                    <input type="text" formControlName="phone">
+                </label>
+                <p></p> <label>Email:
+                    <input type="text" formControlName="email">
+                </label>
+
+                <p></p> <label>Adresse:
+                    <input type="text" formControlName="addressClient">
+                </label>
+                <p></p> <label>Code postal:
+                    <input type="text" formControlName="zipCodeClient">
+                </label>
+
+                <p></p> <label>Ville:
+                    <input type="text" formControlName="cityClient">
+                </label>
+
+                <h3>Comptes</h3>
+                <h4>Compte Courant</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDateCurrent">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumberCurrent">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalanceCurrent">
+                </label>
+                <p></p> <label>Autorisation de decouvert:
+                    <input type="text" formControlName="overdraftAuthorization">
+                </label>
+
+                <h4>Compte Epargne</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDateSavings">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumberSavings">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalanceSavings">
+                </label>
+                <p></p> <label>Taux de remuneration:
+                    <input type="text" formControlName="defaultSalaryRate">
+                </label>
+
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
 
                 &nbsp; <button *ngIf="clientType" class="btn btn-success" type="submit"
-                   [disabled]="!myFormCompany.valid">Create</button>
+                    [disabled]="!myFormCompany.valid" >Create</button>
             </form>
         </div>
     </div>

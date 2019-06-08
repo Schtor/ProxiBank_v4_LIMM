@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/service/client.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountListComponent } from 'src/app/account-components/account-list/account-list.component';
 
 @Component({
     selector: 'app-client-show',
@@ -19,7 +20,7 @@ export class ClientShowComponent implements OnInit {
     constructor(private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
     showClient() {
-        this.service.getClient(this.id).subscribe(data => this.client = data, error => console.log('error in system'));
+        this.client = this.service.getClient(this.id).subscribe(data => this.client = data, error => console.log('error in system'));
 
     }
 

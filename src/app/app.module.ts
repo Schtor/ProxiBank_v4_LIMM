@@ -4,11 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientListComponent } from './client-components/client-list/client-list.component';
-import { ClientEditComponent } from './client-components/client-edit/client-edit.component';
 import { ClientShowComponent } from './client-components/client-show/client-show.component';
 import { ClientCreateComponent } from './client-components/client-create/client-create.component';
 import { AccountListComponent } from './account-components/account-list/account-list.component';
-import { AccountEditComponent } from './account-components/account-edit/account-edit.component';
 import { AccountShowComponent } from './account-components/account-show/account-show.component';
 import { AccountCreateComponent } from './account-components/account-create/account-create.component';
 import { AdvisorListComponent } from './advisor-components/advisor-list/advisor-list.component';
@@ -30,11 +28,9 @@ import { CustomerEditComponent } from './client-components/customer-edit/custome
     declarations: [
         AppComponent,
         ClientListComponent,
-        ClientEditComponent,
         ClientShowComponent,
         ClientCreateComponent,
         AccountListComponent,
-        AccountEditComponent,
         AccountShowComponent,
         AccountCreateComponent,
         AdvisorListComponent,

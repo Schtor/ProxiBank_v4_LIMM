@@ -18,7 +18,13 @@ export class CompanyEditComponent implements OnInit {
 
     myForm = this.fb.group({
         companyName: ['', Validators.required],
-        siretNumber: ['', Validators.required]
+        siretNumber: ['', Validators.required],
+        login: ['', Validators.required],
+        phone: ['', Validators.required],
+        email: ['', Validators.required],
+        addressClient: ['', Validators.required],
+        zipCodeClient: ['', Validators.required],
+        cityClient: ['', Validators.required]
     });
 
     constructor(private fb: FormBuilder, private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) {
@@ -42,6 +48,12 @@ export class CompanyEditComponent implements OnInit {
     onSubmit(id: number): void {
         this.companyUpdated.companyName = this.myForm.value.companyName;
         this.companyUpdated.siretNumber = this.myForm.value.siretNumber;
+        this.companyUpdated.login = this.myForm.value.login;
+        this.companyUpdated.phone = this.myForm.value.phone;
+        this.companyUpdated.email = this.myForm.value.email;
+        this.companyUpdated.addressClient = this.myForm.value.addressClient;
+        this.companyUpdated.zipCodeClient = this.myForm.value.zipCodeClient;
+        this.companyUpdated.cityClient = this.myForm.value.cityClient;
         this.companyUpdated.id = id;
         if (window.confirm('Do you want to update this client?')) {
             this.service.updateClient(this.companyUpdated).subscribe(data => {
