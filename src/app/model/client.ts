@@ -2,14 +2,11 @@ import { zip } from 'rxjs/operators';
 
 export class Client {
 
-    // id: number;
     id: number;
     lastName: string;
     firstName: string;
     companyName: string;
     siretNumber: string;
-    login: string;
-    password: string;
     phone: string;
     email: string;
     addressClient: string;
@@ -17,12 +14,10 @@ export class Client {
     cityClient: string;
     accountList: Account[];
 
-    constructor(lastName?: string, firstName?: string, companyName?: string, siretNumber?: string, login?: string, password?: string, phone?: string, email?: string,
+    constructor(lastName?: string, firstName?: string, companyName?: string, siretNumber?: string, phone?: string, email?: string,
                 addressClient?: string, zipCodeClient?: string, cityClient?: string, accountList?: Account[]) {
         this.lastName = lastName || null;
         this.firstName = firstName || null;
-        this.login = login || null;
-        this.password = password || null;
         this.companyName = companyName || null;
         this.siretNumber = siretNumber || null;
         this.phone = phone || null;

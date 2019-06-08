@@ -19,7 +19,6 @@ export class CompanyEditComponent implements OnInit {
     myForm = this.fb.group({
         companyName: ['', Validators.required],
         siretNumber: ['', Validators.required],
-        login: ['', Validators.required],
         phone: ['', Validators.required],
         email: ['', Validators.required],
         addressClient: ['', Validators.required],
@@ -49,7 +48,6 @@ export class CompanyEditComponent implements OnInit {
         this.companyUpdated.companyName = this.myForm.value.companyName;
         this.companyUpdated.siretNumber = this.myForm.value.siretNumber;
         this.companyUpdated.id = id;
-        this.companyUpdated.login = this.myForm.value.login;
         this.companyUpdated.phone = this.myForm.value.phone;
         this.companyUpdated.email = this.myForm.value.email;
         this.companyUpdated.addressClient = this.myForm.value.addressClient;

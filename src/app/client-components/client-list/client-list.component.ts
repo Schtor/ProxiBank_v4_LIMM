@@ -9,6 +9,7 @@ import { ClientService } from 'src/app/service/client.service';
 })
 export class ClientListComponent implements OnInit {
 
+
     clients: any = [];
 
     constructor(private service: ClientService) { }

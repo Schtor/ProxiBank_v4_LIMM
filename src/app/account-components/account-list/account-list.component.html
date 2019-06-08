@@ -1,5 +1,5 @@
 <p>
-  account-list works!
+    account-list works!
 </p>
 
 <div class="row">
@@ -31,19 +31,15 @@
 
                 <th scope="col">Numero de compte</th>
                 <th scope="col">Date de creation</th>
-                <th scope="col">Autorisation decouvert</th>
                 <th scope="col">Solde</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let c of clients">
-    
-                <td *ngIf="c.firstName && !c.siretNumber">{{c.firstName}}</td>
-                <td *ngIf="c.firstName && !c.siretNumber">{{c.lastName}}</td>
-                <td *ngIf="c.firstName && !c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
-                        routerLink="/client-show/{{c.id}}">Show</a>
+            <tr *ngFor="let a of client.accountList">
 
-      </td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.openingAccountDate}}</td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountNumber}}</td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountBalance}}</td>
 
             </tr>
         </tbody>
@@ -59,19 +55,15 @@
 
                 <th scope="col">Numero de compte</th>
                 <th scope="col">Date de creation</th>
-                <th scope="col">Taux de remuneration</th>
                 <th scope="col">Solde</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let c of clients">
+            <tr *ngFor="let a of client.accountList">
 
-                <td *ngIf="!c.firstName && c.siretNumber">{{c.companyName}}</td>
-                <td *ngIf="!c.firstName && c.siretNumber">{{c.siretNumber}}</td>
-                <td *ngIf="!c.firstName && c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
-                        routerLink="/client-show/{{c.id}}">Show</a>
-                    <a class="btn btn-warning mr-1" routerLinkActive="active"
-                        routerLink="/company-edit/{{c.id}}">Update</a></td>
+                    <td *ngIf="a.typeOfAccount === 'Saving'">{{a.openingAccountDate}}</td>
+                    <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountNumber}}</td>
+                <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountBalance}}</td>
 
             </tr>
         </tbody>

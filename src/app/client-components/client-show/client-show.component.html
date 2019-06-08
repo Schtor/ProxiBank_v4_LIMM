@@ -3,7 +3,6 @@
     <div class="card-header" *ngIf="client.companyName">{{client.companyName}} {{client.siretNumber}} </div>
     <div class="card-body">
         <h5 class="card-title">Informations</h5>
-        <p class="card-text">{{client.login}}</p>
         <p class="card-text">{{client.phone}}</p>
         <p class="card-text">{{client.email}}</p>
         <h5 class="card-title">Adresse</h5>
@@ -48,9 +47,9 @@
         <tbody>
             <tr *ngFor="let a of client.accountList">
 
-                <td *ngIf="a.typeOfAccount === '1'">{{a.openingAccountDate}}</td>
-                <td *ngIf="a.typeOfAccount === '1'">{{a.accountNumber}}</td>
-                <td *ngIf="a.typeOfAccount === '1'">{{a.accountBalance}}</td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.openingAccountDate}}</td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountNumber}}</td>
+                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountBalance}}</td>
 
             </tr>
         </tbody>
@@ -72,9 +71,9 @@
         <tbody>
                 <tr *ngFor="let a of client.accountList">
 
-                    <td *ngIf="a.typeOfAccount === '2'">{{a.openingAccountDate}}</td>
-                    <td *ngIf="a.typeOfAccount === '2'">{{a.accountNumber}}</td>
-                <td *ngIf="a.typeOfAccount === '2'">{{a.accountBalance}}</td>
+                    <td *ngIf="a.typeOfAccount === 'Saving'">{{a.openingAccountDate}}</td>
+                    <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountNumber}}</td>
+                <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountBalance}}</td>
 
             </tr>
         </tbody>
