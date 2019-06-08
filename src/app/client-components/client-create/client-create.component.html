@@ -46,7 +46,6 @@
                     <input type="text" formControlName="cityClient">
                 </label>
 
-                <h3>Comptes</h3>
                 <h4>Compte Courant</h4>
 
                 <p></p> <label>Date d'ouverture:
@@ -57,9 +56,6 @@
                 </label>
                 <p></p> <label>Solde:
                     <input type="text" formControlName="accountBalanceCurrent">
-                </label>
-                <p></p> <label>Autorisation de decouvert:
-                    <input type="text" formControlName="overdraftAuthorization">
                 </label>
 
                 <h4>Compte Epargne</h4>
@@ -73,12 +69,9 @@
                 <p></p> <label>Solde:
                     <input type="text" formControlName="accountBalanceSavings">
                 </label>
-                <p></p> <label>Taux de remuneration:
-                    <input type="text" formControlName="defaultSalaryRate">
-                </label>
 
-                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Back</a>
-                &nbsp; <button class="btn btn-success" type="submit" [disabled]="!myFormCustomer.valid">Create</button>
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
+                &nbsp; <button class="btn btn-success" type="submit" [disabled]="!myFormCustomer.valid">Creer</button>
             </form>
         </div>
     </div>
@@ -88,6 +81,8 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <form [formGroup]="myFormCompany" (ngSubmit)="onSubmitCompany()">
+
+                 <h3>Informations Generales</h3>
 
                 <p></p> <label>Nom de l'Entreprise:
                     <input type="text" formControlName="companyName">
@@ -121,7 +116,6 @@
                     <input type="text" formControlName="cityClient">
                 </label>
 
-                <h3>Comptes</h3>
                 <h4>Compte Courant</h4>
 
                 <p></p> <label>Date d'ouverture:
@@ -132,9 +126,6 @@
                 </label>
                 <p></p> <label>Solde:
                     <input type="text" formControlName="accountBalanceCurrent">
-                </label>
-                <p></p> <label>Autorisation de decouvert:
-                    <input type="text" formControlName="overdraftAuthorization">
                 </label>
 
                 <h4>Compte Epargne</h4>
@@ -148,14 +139,11 @@
                 <p></p> <label>Solde:
                     <input type="text" formControlName="accountBalanceSavings">
                 </label>
-                <p></p> <label>Taux de remuneration:
-                    <input type="text" formControlName="defaultSalaryRate">
-                </label>
 
                 <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
 
                 &nbsp; <button *ngIf="clientType" class="btn btn-success" type="submit"
-                    [disabled]="!myFormCompany.valid" >Create</button>
+                    [disabled]="!myFormCompany.valid" >Creer</button>
             </form>
         </div>
     </div>

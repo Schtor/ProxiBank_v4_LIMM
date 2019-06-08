@@ -21,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IdentificationComponent } from './operations-components/identification/identification.component';
 import { CompanyEditComponent } from './client-components/company-edit/company-edit.component';
 import { CustomerEditComponent } from './client-components/customer-edit/customer-edit.component';
+import { BankDetailsComponent } from './operations-components/bank-details/bank-details.component';
 
 
 
@@ -42,7 +43,8 @@ import { CustomerEditComponent } from './client-components/customer-edit/custome
         InvestmentComponent,
         IdentificationComponent,
         CompanyEditComponent,
-        CustomerEditComponent
+        CustomerEditComponent,
+        BankDetailsComponent
     ],
     imports: [
         BrowserModule,

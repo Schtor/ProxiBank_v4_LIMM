@@ -21,12 +21,12 @@
 
 <div class="d-flex justify-content-center">
 
-    <table class="table col-sm-4">
+    <table class="table col-sm-5">
         <thead class="thead-light">
             <tr>
 
-                <th scope="col">Prenom</th>
-                <th scope="col">Nom</th>
+                <th scope="col">Prenom Client</th>
+                <th scope="col">Nom Client</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -36,10 +36,10 @@
                 <td *ngIf="c.firstName && !c.siretNumber">{{c.firstName}}</td>
                 <td *ngIf="c.firstName && !c.siretNumber">{{c.lastName}}</td>
                 <td *ngIf="c.firstName && !c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
-                        routerLink="/client-show/{{c.id}}">Show</a>
-                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Delete</a>
+                        routerLink="/client-show/{{c.id}}">Voir</a>
+                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supprimer</a>
                     <a class="btn btn-warning mr-1" routerLinkActive="active"
-                        routerLink="/customer-edit/{{c.id}}">Update</a></td>
+                        routerLink="/customer-edit/{{c.id}}">Modifier</a></td>
 
             </tr>
         </tbody>
@@ -47,9 +47,9 @@
 
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
 
-    <table class="table col-sm-4">
+    <table class="table col-sm-5">
         <thead class="thead-light">
             <tr>
 
@@ -64,10 +64,10 @@
                 <td *ngIf="!c.firstName && c.siretNumber">{{c.companyName}}</td>
                 <td *ngIf="!c.firstName && c.siretNumber">{{c.siretNumber}}</td>
                 <td *ngIf="!c.firstName && c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
-                        routerLink="/client-show/{{c.id}}">Show</a>
-                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Delete</a>
+                        routerLink="/client-show/{{c.id}}">Voir</a>
+                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supprimer</a>
                     <a class="btn btn-warning mr-1" routerLinkActive="active"
-                        routerLink="/company-edit/{{c.id}}">Update</a></td>
+                        routerLink="/company-edit/{{c.id}}">Modifier</a></td>
 
             </tr>
         </tbody>

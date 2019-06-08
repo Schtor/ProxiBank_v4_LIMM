@@ -70,7 +70,6 @@
                 <td *ngIf="!c.firstName && c.siretNumber">{{c.siretNumber}}</td>
                 <td *ngIf="!c.firstName && c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
                         routerLink="/client-show/{{c.id}}">Show</a>
-                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Delete</a>
                     <a class="btn btn-warning mr-1" routerLinkActive="active"
                         routerLink="/company-edit/{{c.id}}">Update</a></td>
 

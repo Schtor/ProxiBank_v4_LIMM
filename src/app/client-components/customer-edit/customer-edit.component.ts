@@ -18,7 +18,13 @@ export class CustomerEditComponent implements OnInit {
 
     myForm = this.fb.group({
         firstName: ['', Validators.required],
-        lastName: ['', Validators.required]
+        lastName: ['', Validators.required],
+        login: ['', Validators.required],
+        phone: ['', Validators.required],
+        email: ['', Validators.required],
+        addressClient: ['', Validators.required],
+        zipCodeClient: ['', Validators.required],
+        cityClient: ['', Validators.required]
     });
 
     constructor(private fb: FormBuilder, private service: ClientService, private activatedRoute: ActivatedRoute, private router: Router) {
@@ -39,16 +45,22 @@ export class CustomerEditComponent implements OnInit {
     }
 
 
-    onSubmit(id: number): void {
+    onSubmit(id: number, accountList: Account[]): void {
         this.customerUpdated.firstName = this.myForm.value.firstName;
         this.customerUpdated.lastName = this.myForm.value.lastName;
         this.customerUpdated.id = id;
+        this.customerUpdated.login = this.myForm.value.login;
+        this.customerUpdated.phone = this.myForm.value.phone;
+        this.customerUpdated.email = this.myForm.value.email;
+        this.customerUpdated.addressClient = this.myForm.value.addressClient;
+        this.customerUpdated.zipCodeClient = this.myForm.value.zipCodeClient;
+        this.customerUpdated.cityClient = this.myForm.value.cityClient;
+        this.customerUpdated.accountList = accountList;
         if (window.confirm('Do you want to update this client?')) {
             this.service.updateClient(this.customerUpdated).subscribe(data => {
                 this.service.getClients();
                 this.router.navigate(['/client-list']);
             });
         }
-
     }
 }

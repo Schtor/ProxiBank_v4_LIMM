@@ -45,23 +45,22 @@ export class CompanyEditComponent implements OnInit {
     }
 
 
-    onSubmit(id: number): void {
+    onSubmit(id: number, accountList: Account[]): void {
         this.companyUpdated.companyName = this.myForm.value.companyName;
         this.companyUpdated.siretNumber = this.myForm.value.siretNumber;
+        this.companyUpdated.id = id;
         this.companyUpdated.login = this.myForm.value.login;
         this.companyUpdated.phone = this.myForm.value.phone;
         this.companyUpdated.email = this.myForm.value.email;
         this.companyUpdated.addressClient = this.myForm.value.addressClient;
         this.companyUpdated.zipCodeClient = this.myForm.value.zipCodeClient;
         this.companyUpdated.cityClient = this.myForm.value.cityClient;
-        this.companyUpdated.id = id;
+        this.companyUpdated.accountList = accountList;
         if (window.confirm('Do you want to update this client?')) {
             this.service.updateClient(this.companyUpdated).subscribe(data => {
                 this.service.getClients();
                 this.router.navigate(['/client-list']);
             });
-            console.warn(this.myForm.value.companyName);
-
         }
 
     }

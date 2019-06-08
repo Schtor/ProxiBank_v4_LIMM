@@ -36,9 +36,7 @@ export class ClientCreateComponent implements OnInit {
         openingAccountDateSavings: ['', Validators.required],
         accountNumberCurrent: ['', Validators.required],
         accountBalanceCurrent: ['', Validators.required],
-        openingAccountDateCurrent: ['', Validators.required],
-        defaultSalaryRate: ['', Validators.required],
-        overdraftAuthorization: ['', Validators.required]
+        openingAccountDateCurrent: ['', Validators.required]
     });
 
     myFormCompany = this.fb.group({
@@ -55,9 +53,7 @@ export class ClientCreateComponent implements OnInit {
         openingAccountDateSavings: ['', Validators.required],
         accountNumberCurrent: ['', Validators.required],
         accountBalanceCurrent: ['', Validators.required],
-        openingAccountDateCurrent: ['', Validators.required],
-        defaultSalaryRate: ['', Validators.required],
-        overdraftAuthorization: ['', Validators.required]
+        openingAccountDateCurrent: ['', Validators.required]
     });
 
 
@@ -80,22 +76,22 @@ export class ClientCreateComponent implements OnInit {
         this.customerAdded.addressClient = this.myFormCustomer.value.addressClient;
         this.customerAdded.zipCodeClient = this.myFormCustomer.value.zipCodeClient;
         this.customerAdded.cityClient = this.myFormCustomer.value.cityClient;
+        this.customerAdded.accountList = [this.currentAccount, this.savingAccount];
         this.savingAccount.accountNumber = this.myFormCustomer.value.accountNumberSavings;
         this.savingAccount.accountBalance = this.myFormCustomer.value.accountBalanceSavings;
         this.savingAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateSavings;
-        this.savingAccount.defaultSalaryRate = this.myFormCustomer.value.defaultSalaryRate;
+        this.savingAccount.typeOfAccount = '2';
         this.currentAccount.accountNumber = this.myFormCustomer.value.accountNumberCurrent;
         this.currentAccount.accountBalance = this.myFormCustomer.value.accountBalanceCurrent;
         this.currentAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateCurrent;
-        this.currentAccount.overdraftAuthorization = this.myFormCustomer.value.overdraftAuthorization;
-        this.customerAdded.accountList = [this.currentAccount, this.savingAccount];
+        this.currentAccount.typeOfAccount = '1';
         this.service.createClient(this.customerAdded).subscribe((data: {}) => {
             this.service.getClients();
             this.router.navigate(['/client-list']);
         });
     }
 
-    onSubmitCompany(value: string): void {
+    onSubmitCompany(): void {
         this.companyAdded.companyName = this.myFormCompany.value.companyName;
         this.companyAdded.siretNumber = this.myFormCompany.value.siretNumber;
         this.companyAdded.login = this.myFormCompany.value.login;
@@ -104,15 +100,15 @@ export class ClientCreateComponent implements OnInit {
         this.companyAdded.addressClient = this.myFormCompany.value.addressClient;
         this.companyAdded.zipCodeClient = this.myFormCompany.value.zipCodeClient;
         this.companyAdded.cityClient = this.myFormCompany.value.cityClient;
+        this.companyAdded.accountList = [this.currentAccount, this.savingAccount];
         this.savingAccount.accountNumber = this.myFormCompany.value.accountNumberSavings;
         this.savingAccount.accountBalance = this.myFormCompany.value.accountBalanceSavings;
         this.savingAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateSavings;
-        this.savingAccount.defaultSalaryRate = this.myFormCompany.value.defaultSalaryRate;
+        this.savingAccount.typeOfAccount = '2';
         this.currentAccount.accountNumber = this.myFormCompany.value.accountNumberCurrent;
         this.currentAccount.accountBalance = this.myFormCompany.value.accountBalanceCurrent;
         this.currentAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateCurrent;
-        this.currentAccount.overdraftAuthorization = this.myFormCompany.value.overdraftAuthorization;
-        this.companyAdded.accountList = [this.currentAccount, this.savingAccount];
+        this.currentAccount.typeOfAccount = '1';
         this.service.createClient(this.companyAdded).subscribe((data: {}) => {
             this.service.getClients();
             this.router.navigate(['/client-list']);

@@ -4,7 +4,6 @@ export class Account {
     accountNumber: number;
     accountBalance: number;
     openingAccountDate: string;
-    defaultSalaryRate: number;
-    overdraftAuthorization: number;
+    typeOfAccount: string;
 
 }

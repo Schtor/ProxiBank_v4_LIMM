@@ -16,6 +16,7 @@ import { AuditComponent } from './operations-components/audit/audit.component';
 import { InvestmentComponent } from './operations-components/investment/investment.component';
 import { CompanyEditComponent } from './client-components/company-edit/company-edit.component';
 import { CustomerEditComponent } from './client-components/customer-edit/customer-edit.component';
+import { BankDetailsComponent } from './operations-components/bank-details/bank-details.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'identification' },
@@ -34,7 +35,8 @@ const routes: Routes = [
     { path: 'audit', component: AuditComponent },
     { path: 'investment', component: InvestmentComponent },
     { path: 'company-edit/:id', component: CompanyEditComponent},
-    { path: 'customer-edit/:id', component: CustomerEditComponent}
+    { path: 'customer-edit/:id', component: CustomerEditComponent},
+    { path: 'bank-details', component: BankDetailsComponent }
 ];
 
 @NgModule({

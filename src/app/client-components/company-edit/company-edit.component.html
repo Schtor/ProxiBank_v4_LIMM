@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h2>Edition entreprise</h2>
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit(selectedCompany.id)">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(selectedCompany.id, selectedCompany.accountList)">
 
                 <label>Nom de l'Entreprise:
                     <input value={{selectedCompany.companyName}} type="text" formControlName="companyName">
@@ -34,9 +34,9 @@
                     <input value={{selectedCompany.cityClient}} type="text" formControlName="cityClient">
                 </label>
                 
-              <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Back to client list</a>
+              <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" >Retour</a>
                &nbsp; <button class="btn btn-warning" type="submit"
-                    [disabled]="!myForm.valid">Update</button>
+                    [disabled]="!myForm.valid">Modifier</button>
             </form>
         </div>
     </div>
