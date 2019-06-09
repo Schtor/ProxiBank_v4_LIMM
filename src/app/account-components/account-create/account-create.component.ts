@@ -70,7 +70,7 @@ export class AccountCreateComponent implements OnInit {
         this.clientUpdated.accountList = accountList;
 
 
-        if (window.confirm('Do you want to update this client?')) {
+        if (window.confirm('Confirmez-vous cet ajout?')) {
             if (this.accountCreated.typeOfAccount === 'Current') {
                 this.serviceAcc.createCurrent(this.accountCreated).subscribe((data: {}) => {
                     this.serviceAcc.getAccounts();
@@ -125,7 +125,7 @@ export class AccountCreateComponent implements OnInit {
         this.clientUpdated.cityClient = cityClient;
 
 
-        if (window.confirm('Do you want to update this client?')) {
+        if (window.confirm('Confirmez-vous cet ajout?')) {
             if (this.accountCreated.typeOfAccount === 'Current') {
                 this.serviceAcc.createCurrent(this.accountCreated).subscribe((data: {}) => {
                     this.serviceAcc.getAccounts();
