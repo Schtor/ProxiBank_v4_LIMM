@@ -30,12 +30,12 @@ export class ClientCreateComponent implements OnInit {
         addressClient: ['', Validators.required],
         zipCodeClient: ['', Validators.required],
         cityClient: ['', Validators.required],
-        accountNumberSavings: ['', Validators.required],
-        accountBalanceSavings: ['', Validators.required],
-        openingAccountDateSavings: ['', Validators.required],
-        accountNumberCurrent: ['', Validators.required],
-        accountBalanceCurrent: ['', Validators.required],
-        openingAccountDateCurrent: ['', Validators.required]
+        // accountNumberSavings: ['', Validators.required],
+        // accountBalanceSavings: ['', Validators.required],
+        // openingAccountDateSavings: ['', Validators.required],
+        // accountNumberCurrent: ['', Validators.required],
+        // accountBalanceCurrent: ['', Validators.required],
+        // openingAccountDateCurrent: ['', Validators.required]
     });
 
     myFormCompany = this.fb.group({
@@ -46,20 +46,20 @@ export class ClientCreateComponent implements OnInit {
         addressClient: ['', Validators.required],
         zipCodeClient: ['', Validators.required],
         cityClient: ['', Validators.required],
-        accountNumberSavings: ['', Validators.required],
-        accountBalanceSavings: ['', Validators.required],
-        openingAccountDateSavings: ['', Validators.required],
-        accountNumberCurrent: ['', Validators.required],
-        accountBalanceCurrent: ['', Validators.required],
-        openingAccountDateCurrent: ['', Validators.required]
+        // accountNumberSavings: ['', Validators.required],
+        // accountBalanceSavings: ['', Validators.required],
+        // openingAccountDateSavings: ['', Validators.required],
+        // accountNumberCurrent: ['', Validators.required],
+        // accountBalanceCurrent: ['', Validators.required],
+        // openingAccountDateCurrent: ['', Validators.required]
     });
 
 
     constructor(private fb: FormBuilder, private service: ClientService, public router: Router) {
         this.companyAdded = new Client();
         this.customerAdded = new Client();
-        this.companyAdded.accountList = [this.savingAccount = new Account(), this.currentAccount = new Account()];
-        this.customerAdded.accountList = [this.savingAccount = new Account(), this.currentAccount = new Account()];
+        this.companyAdded.accountList = [];
+        this.customerAdded.accountList = [];
     }
 
     ngOnInit() {
@@ -73,16 +73,16 @@ export class ClientCreateComponent implements OnInit {
         this.customerAdded.addressClient = this.myFormCustomer.value.addressClient;
         this.customerAdded.zipCodeClient = this.myFormCustomer.value.zipCodeClient;
         this.customerAdded.cityClient = this.myFormCustomer.value.cityClient;
-        this.customerAdded.accountList = [this.currentAccount, this.savingAccount];
-        this.savingAccount.accountNumber = this.myFormCustomer.value.accountNumberSavings;
-        this.savingAccount.accountBalance = this.myFormCustomer.value.accountBalanceSavings;
-        this.savingAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateSavings;
-        this.savingAccount.typeOfAccount = 'Saving';
-        this.currentAccount.accountNumber = this.myFormCustomer.value.accountNumberCurrent;
-        this.currentAccount.accountBalance = this.myFormCustomer.value.accountBalanceCurrent;
-        this.currentAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateCurrent;
-        this.currentAccount.typeOfAccount = 'Current';
-        this.service.createClient(this.customerAdded).subscribe((data: {}) => {
+        this.customerAdded.accountList = [];
+        // this.savingAccount.accountNumber = this.myFormCustomer.value.accountNumberSavings;
+        // this.savingAccount.accountBalance = this.myFormCustomer.value.accountBalanceSavings;
+        // this.savingAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateSavings;
+        // this.savingAccount.typeOfAccount = 'Saving';
+        // this.currentAccount.accountNumber = this.myFormCustomer.value.accountNumberCurrent;
+        // this.currentAccount.accountBalance = this.myFormCustomer.value.accountBalanceCurrent;
+        // this.currentAccount.openingAccountDate = this.myFormCustomer.value.openingAccountDateCurrent;
+        // this.currentAccount.typeOfAccount = 'Current';
+        this.service.createCustomer(this.customerAdded).subscribe((data: {}) => {
             this.service.getClients();
             this.router.navigate(['/client-list']);
         });
@@ -96,16 +96,16 @@ export class ClientCreateComponent implements OnInit {
         this.companyAdded.addressClient = this.myFormCompany.value.addressClient;
         this.companyAdded.zipCodeClient = this.myFormCompany.value.zipCodeClient;
         this.companyAdded.cityClient = this.myFormCompany.value.cityClient;
-        this.companyAdded.accountList = [this.currentAccount, this.savingAccount];
-        this.savingAccount.accountNumber = this.myFormCompany.value.accountNumberSavings;
-        this.savingAccount.accountBalance = this.myFormCompany.value.accountBalanceSavings;
-        this.savingAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateSavings;
-        this.savingAccount.typeOfAccount = 'Saving';
-        this.currentAccount.accountNumber = this.myFormCompany.value.accountNumberCurrent;
-        this.currentAccount.accountBalance = this.myFormCompany.value.accountBalanceCurrent;
-        this.currentAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateCurrent;
-        this.currentAccount.typeOfAccount = 'Current';
-        this.service.createClient(this.companyAdded).subscribe((data: {}) => {
+        this.companyAdded.accountList = [];
+        // this.savingAccount.accountNumber = this.myFormCompany.value.accountNumberSavings;
+        // this.savingAccount.accountBalance = this.myFormCompany.value.accountBalanceSavings;
+        // this.savingAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateSavings;
+        // this.savingAccount.typeOfAccount = 'Saving';
+        // this.currentAccount.accountNumber = this.myFormCompany.value.accountNumberCurrent;
+        // this.currentAccount.accountBalance = this.myFormCompany.value.accountBalanceCurrent;
+        // this.currentAccount.openingAccountDate = this.myFormCompany.value.openingAccountDateCurrent;
+        // this.currentAccount.typeOfAccount = 'Current';
+        this.service.createCompany(this.companyAdded).subscribe((data: {}) => {
             this.service.getClients();
             this.router.navigate(['/client-list']);
         });

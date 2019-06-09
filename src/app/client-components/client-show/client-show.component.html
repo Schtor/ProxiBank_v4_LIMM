@@ -47,11 +47,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let a of client.accountList">
-
-                <td *ngIf="a.typeOfAccount === 'Current'">{{a.openingAccountDate}}</td>
-                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountNumber}}</td>
-                <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountBalance}}</td>
-                <td *ngIf="a.typeOfAccount === 'Current'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td>
+                <td *ngIf="a.typeOfAccount == 'Current'">{{a.openingAccountDate}}</td>
+                <td *ngIf="a.typeOfAccount == 'Current'">{{a.accountNumber}}</td>
+                <td *ngIf="a.typeOfAccount == 'Current'">{{a.accountBalance}}</td>
+                <!-- <td *ngIf="a.typeOfAccount == 'Current'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td> -->
             </tr>
         </tbody>
     </table>
@@ -76,7 +75,7 @@
                     <td *ngIf="a.typeOfAccount === 'Saving'">{{a.openingAccountDate}}</td>
                     <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountNumber}}</td>
                 <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountBalance}}</td>
-                 <td *ngIf="a.typeOfAccount === 'Saving'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td>
+                 <!-- <td *ngIf="a.typeOfAccount === 'Saving'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td> -->
 
             </tr>
         </tbody>

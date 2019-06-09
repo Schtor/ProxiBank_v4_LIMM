@@ -56,6 +56,7 @@ export class AccountCreateComponent implements OnInit {
         this.accountCreated.accountBalance = this.myFormSavings.value.accountBalance;
         this.accountCreated.openingAccountDate = this.myFormSavings.value.openingAccountDate;
         this.accountCreated.typeOfAccount = 'Saving';
+        this.accountCreated.client = this.selectedClient;
         this.clientUpdated.id = id;
         this.clientUpdated.firstName = firstName;
         this.clientUpdated.lastName = lastName;
@@ -67,18 +68,42 @@ export class AccountCreateComponent implements OnInit {
         this.clientUpdated.zipCodeClient = zipCodeClient;
         this.clientUpdated.cityClient = cityClient;
         this.clientUpdated.accountList = accountList;
-        
-        
+
+
         if (window.confirm('Do you want to update this client?')) {
-            this.serviceAcc.createAccount(this.accountCreated).subscribe((data: {}) => {
-                this.serviceAcc.getAccounts();
-            });
-            this.clientUpdated.accountList.push(this.accountCreated);
-            this.service.updateClient(this.clientUpdated).subscribe(data => {
-                this.service.getClients();
-                this.router.navigate(['/client-list']);
-            });
+            if (this.accountCreated.typeOfAccount === 'Current') {
+                this.serviceAcc.createCurrent(this.accountCreated).subscribe((data: {}) => {
+                    this.serviceAcc.getAccounts();
+                    this.router.navigate(['/client-list']);
+                });
+            } else if (this.accountCreated.typeOfAccount === 'Saving') {
+                this.serviceAcc.createSaving(this.accountCreated).subscribe((data: {}) => {
+                    this.serviceAcc.getAccounts();
+                    this.router.navigate(['/client-list']);
+                });
+
+            }
+
+            if (this.clientUpdated.accountList) {
+                this.clientUpdated.accountList.push(this.accountCreated);
+            } else {
+                this.clientUpdated.accountList = [this.accountCreated];
+            }
+
+            if (this.clientUpdated.firstName) {
+                this.service.updateCustomer(this.clientUpdated).subscribe(data => {
+                    this.service.getClients();
+                    this.router.navigate(['/client-list']);
+                });
+            } else if (this.clientUpdated.siretNumber) {
+                this.service.updateCompany(this.clientUpdated).subscribe(data => {
+                    this.service.getClients();
+                    this.router.navigate(['/client-list']);
+                });
+            }
         }
+        console.log(this.clientUpdated);
+
     }
 
     onSubmitCurrent(id: number, firstName: string, lastName: string, phone: string, email: string, addressClient: string, zipCodeClient: string,
@@ -87,6 +112,7 @@ export class AccountCreateComponent implements OnInit {
         this.accountCreated.accountBalance = this.myFormCurrent.value.accountBalance;
         this.accountCreated.openingAccountDate = this.myFormCurrent.value.openingAccountDate;
         this.accountCreated.typeOfAccount = 'Current';
+        this.accountCreated.client = this.selectedClient;
         this.clientUpdated.id = id;
         this.clientUpdated.firstName = firstName;
         this.clientUpdated.lastName = lastName;
@@ -97,19 +123,38 @@ export class AccountCreateComponent implements OnInit {
         this.clientUpdated.addressClient = addressClient;
         this.clientUpdated.zipCodeClient = zipCodeClient;
         this.clientUpdated.cityClient = cityClient;
-        this.clientUpdated.accountList = accountList;
 
 
         if (window.confirm('Do you want to update this client?')) {
-            this.serviceAcc.createAccount(this.accountCreated).subscribe((data: {}) => {
-                this.serviceAcc.getAccounts();
-            });
-            this.clientUpdated.accountList.push(this.accountCreated);
-            this.service.updateClient(this.clientUpdated).subscribe(data => {
-                this.service.getClients();
-                this.router.navigate(['/client-list']);
-            });
+            if (this.accountCreated.typeOfAccount === 'Current') {
+                this.serviceAcc.createCurrent(this.accountCreated).subscribe((data: {}) => {
+                    this.serviceAcc.getAccounts();
+                    this.router.navigate(['/client-list']);
+                });
+            } else if (this.accountCreated.typeOfAccount === 'Saving') {
+                this.serviceAcc.createSaving(this.accountCreated).subscribe((data: {}) => {
+                    this.serviceAcc.getAccounts();
+                    this.router.navigate(['/client-list']);
+                });
+                if (this.clientUpdated.accountList) {
+                    this.clientUpdated.accountList.push(this.accountCreated);
+                } else {
+                    this.clientUpdated.accountList = [this.accountCreated];
+                }
+            }
+            if (this.clientUpdated.firstName) {
+                this.service.updateCustomer(this.clientUpdated).subscribe(data => {
+                    this.service.getClients();
+                    this.router.navigate(['/client-list']);
+                });
+            } else if (this.clientUpdated.siretNumber) {
+                this.service.updateCompany(this.clientUpdated).subscribe(data => {
+                    this.service.getClients();
+                    this.router.navigate(['/client-list']);
+                });
+            }
         }
+        console.log(this.clientUpdated);
     }
 
     onSelect() {

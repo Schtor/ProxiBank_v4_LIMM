@@ -55,7 +55,7 @@ export class CustomerEditComponent implements OnInit {
         this.customerUpdated.cityClient = this.myForm.value.cityClient;
         this.customerUpdated.accountList = accountList;
         if (window.confirm('Do you want to update this client?')) {
-            this.service.updateClient(this.customerUpdated).subscribe(data => {
+            this.service.updateCustomer(this.customerUpdated).subscribe(data => {
                 this.service.getClients();
                 this.router.navigate(['/client-list']);
             });

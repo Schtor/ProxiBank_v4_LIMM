@@ -15,7 +15,7 @@ export class ClientShowComponent implements OnInit {
 
     client: any = {};
     clients: any = [];
-    account: any = {};
+    // account: any = {};
     accounts: any = [];
 
     id = this.activatedRoute.snapshot.params.id;
@@ -51,15 +51,15 @@ export class ClientShowComponent implements OnInit {
         }
     }
 
-    deleteAccount(id) {
-        if (window.confirm('Le solde de ce compte est-il de 0?')) {
-            if (window.confirm('Voulez vous vraiment supprimer ce compte ?'))
-                this.serviceAcc.deleteAccount(id).subscribe(data => {
-                    this.getAccounts();
-                });
+    // deleteAccount(id) {
+    //     if (window.confirm('Le solde de ce compte est-il de 0?')) {
+    //         if (window.confirm('Voulez vous vraiment supprimer ce compte ?'))
+    //             this.serviceAcc.deleteAccount(id).subscribe(data => {
+    //                 this.getAccounts();
+    //             });
             
-        }
+    //     }
 
 
-    }
+    // }
 }

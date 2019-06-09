@@ -4,10 +4,10 @@ import { Client } from '../model/client';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AccountService {
-    endpoint = 'http://localhost:3000';
+    endpoint = 'http://localhost:8080/limm';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -15,22 +15,26 @@ export class AccountService {
         })
     };
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
     getAccounts(): Observable<Account[]> {
-        return this.http.get<Account[]>(this.endpoint + '/accounts', this.httpOptions);
+        return this.http.get<Account[]>(this.endpoint + '/accounts' , this.httpOptions);
     }
 
     getAccount(id): Observable<Account> {
         return this.http.get<Account>(this.endpoint + '/accounts/' + id, this.httpOptions);
     }
 
-     updateAccount(account): Observable<Account> {
+    updateAccount(account): Observable<Account> {
         return this.http.put<Account>(this.endpoint + '/accounts/' + account.id, JSON.stringify(account), this.httpOptions);
     }
 
-    createAccount(account): Observable<Account> {
-        return this.http.post<Account>(this.endpoint + '/accounts', JSON.stringify(account), this.httpOptions);
+    createCurrent(account): Observable<Account> {
+        return this.http.post<Account>(this.endpoint + '/accounts/current', JSON.stringify(account), this.httpOptions);
+    }
+
+    createSaving(account): Observable<Account> {
+        return this.http.post<Account>(this.endpoint + '/accounts/saving', JSON.stringify(account), this.httpOptions);
     }
 
     deleteAccount(id) {

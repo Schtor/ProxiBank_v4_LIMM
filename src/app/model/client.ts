@@ -12,10 +12,10 @@ export class Client {
     addressClient: string;
     zipCodeClient: string;
     cityClient: string;
-    accountList: Account[];
+    accountList: Account[] = [];
 
     constructor(lastName?: string, firstName?: string, companyName?: string, siretNumber?: string, phone?: string, email?: string,
-                addressClient?: string, zipCodeClient?: string, cityClient?: string, accountList?: Account[]) {
+        addressClient?: string, zipCodeClient?: string, cityClient?: string, accountList?: Account[]) {
         this.lastName = lastName || null;
         this.firstName = firstName || null;
         this.companyName = companyName || null;
@@ -25,7 +25,7 @@ export class Client {
         this.addressClient = addressClient || null;
         this.zipCodeClient = zipCodeClient || null;
         this.cityClient = cityClient || null;
-        this.accountList = accountList || null;
+        this.accountList = accountList;
     }
 
 }

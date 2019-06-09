@@ -55,7 +55,7 @@ export class CompanyEditComponent implements OnInit {
         this.companyUpdated.cityClient = this.myForm.value.cityClient;
         this.companyUpdated.accountList = accountList;
         if (window.confirm('Do you want to update this client?')) {
-            this.service.updateClient(this.companyUpdated).subscribe(data => {
+            this.service.updateCompany(this.companyUpdated).subscribe(data => {
                 this.service.getClients();
                 this.router.navigate(['/client-list']);
             });

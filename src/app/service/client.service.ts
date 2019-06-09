@@ -10,7 +10,7 @@ import { JsonPipe } from '@angular/common';
 })
 export class ClientService {
 
-    endpoint = 'http://localhost:3000';
+    endpoint = 'http://localhost:8080/limm';
 
     constructor(private http: HttpClient) { }
 
@@ -32,11 +32,19 @@ export class ClientService {
         return this.http.delete<Client>(this.endpoint + '/clients/' + id, this.httpOptions);
     }
 
-    createClient(client): Observable<Client> {
-        return this.http.post<Client>(this.endpoint + '/clients', JSON.stringify(client), this.httpOptions);
+    createCustomer(client): Observable<Client> {
+        return this.http.post<Client>(this.endpoint + '/clients/customer', JSON.stringify(client), this.httpOptions);
     }
 
-    updateClient(client): Observable<Client> {
-        return this.http.put<Client>(this.endpoint + '/clients/' + client.id, JSON.stringify(client), this.httpOptions);
+    createCompany(client): Observable<Client> {
+        return this.http.post<Client>(this.endpoint + '/clients/company', JSON.stringify(client), this.httpOptions);
+    }
+
+    updateCustomer(client): Observable<Client> {
+        return this.http.put<Client>(this.endpoint + '/clients/customer', JSON.stringify(client), this.httpOptions);
+    }
+
+    updateCompany(client): Observable<Client> {
+        return this.http.put<Client>(this.endpoint + '/clients/company', JSON.stringify(client), this.httpOptions);
     }
 }

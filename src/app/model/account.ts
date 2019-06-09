@@ -1,3 +1,5 @@
+import { Client } from './client';
+
 export class Account {
 
     id: number;
@@ -5,5 +7,7 @@ export class Account {
     accountBalance: number;
     openingAccountDate: string;
     typeOfAccount: string;
+    client: Client;
 
+    constructor() { }
 }
