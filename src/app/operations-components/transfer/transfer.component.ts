@@ -38,9 +38,9 @@ export class TransferComponent implements OnInit {
         console.log(this.accountDeb);
 
 
-        this.accountDeb.accountBalance = parseInt(this.accountDeb.accountBalance) - parseInt(this.myForm.value.amount);
+        this.accountDeb.accountBalance = this.accountDeb.accountBalance - this.myForm.value.amount;
 
-        this.accountCred.accountBalance = parseInt(this.accountCred.accountBalance) + parseInt(this.myForm.value.amount);
+        this.accountCred.accountBalance = this.accountCred.accountBalance - (-this.myForm.value.amount);
         this.accountDeb.id = this.myForm.value.id1;
         this.accountCred.id = this.myForm.value.id2;
         if (window.confirm('Confirmez-vous ce virement ?')) {

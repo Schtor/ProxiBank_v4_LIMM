@@ -1,3 +1,65 @@
-<p>
-  account-create works!
-</p>
+<h2>Ajouter Compte</h2>
+
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" (click)="offSelect()">Courant</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" (click)="onSelect()">Epargne</a>
+    </li>
+</ul>
+
+<div class="container" *ngIf="!accountType">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="myFormCurrent" (ngSubmit)="onSubmitCurrent(selectedClient.id, selectedClient.firstName,
+            selectedClient.lastName, selectedClient.phone, selectedClient.email, selectedClient.addressClient, selectedClient.zipCodeClient,
+            selectedClient.cityClient, selectedClient.companyName, selectedClient.siretNumber, selectedClient.accountList)">
+                <h4>Compte Courant</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDate">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumber">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalance">
+                </label>
+
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
+                &nbsp; <button class="btn btn-success" type="submit" [disabled]="!myFormCurrent.valid">Creer</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="accountType">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="myFormSavings"
+                (ngSubmit)="onSubmitSavings(selectedClient.id, selectedClient.firstName, selectedClient.lastName, selectedClient.phone,
+                 selectedClient.email, selectedClient.addressClient, selectedClient.zipCodeClient, selectedClient.cityClient, 
+                 selectedClient.companyName, selectedClient.siretNumber,selectedClient.accountList)">
+
+                <h4>Compte Epargne</h4>
+
+                <p></p> <label>Date d'ouverture:
+                    <input type="text" formControlName="openingAccountDate">
+                </label>
+                <p></p> <label>Numero de compte:
+                    <input type="text" formControlName="accountNumber">
+                </label>
+                <p></p> <label>Solde:
+                    <input type="text" formControlName="accountBalance">
+                </label>
+
+                <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list">Retour</a>
+
+                &nbsp; <button *ngIf="accountType" class="btn btn-success" type="submit"
+                    [disabled]="!myFormSavings.valid">Creer</button>
+            </form>
+        </div>
+    </div>
+</div>

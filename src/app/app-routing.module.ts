@@ -28,7 +28,7 @@ const routes: Routes = [
     { path: 'advisor-edit/:id', component: AdvisorEditComponent },
     { path: 'advisor-list', component: AdvisorListComponent },
     { path: 'advisor-show/:id', component: AdvisorShowComponent },
-    { path: 'account-create', component: AccountCreateComponent },
+    { path: 'account-create/:id', component: AccountCreateComponent },
     { path: 'account-list', component: AccountListComponent },
     { path: 'account-show/:id', component: AccountShowComponent },
     { path: 'transfer', component: TransferComponent },

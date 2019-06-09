@@ -42,6 +42,7 @@
                 <th scope="col">Date de creation</th>
                 <th scope="col">Numero de compte</th>
                 <th scope="col">Solde</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -50,7 +51,7 @@
                 <td *ngIf="a.typeOfAccount === 'Current'">{{a.openingAccountDate}}</td>
                 <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountNumber}}</td>
                 <td *ngIf="a.typeOfAccount === 'Current'">{{a.accountBalance}}</td>
-
+                <td *ngIf="a.typeOfAccount === 'Current'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td>
             </tr>
         </tbody>
     </table>
@@ -66,6 +67,7 @@
                 <th scope="col">Date de creation</th>
                 <th scope="col">Numero de compte</th>
                 <th scope="col">Solde</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -74,6 +76,7 @@
                     <td *ngIf="a.typeOfAccount === 'Saving'">{{a.openingAccountDate}}</td>
                     <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountNumber}}</td>
                 <td *ngIf="a.typeOfAccount === 'Saving'">{{a.accountBalance}}</td>
+                 <td *ngIf="a.typeOfAccount === 'Saving'"><button class="btn btn-sm btn-danger mr-1" (click)="deleteAccount(a.id)">Suppr</button></td>
 
             </tr>
         </tbody>

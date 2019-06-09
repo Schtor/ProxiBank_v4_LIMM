@@ -37,9 +37,10 @@
                 <td *ngIf="c.firstName && !c.siretNumber">{{c.lastName}}</td>
                 <td *ngIf="c.firstName && !c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
                         routerLink="/client-show/{{c.id}}">Voir</a>
-                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supprimer</a>
+                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supp</a>
                     <a class="btn btn-warning mr-1" routerLinkActive="active"
-                        routerLink="/customer-edit/{{c.id}}">Modifier</a></td>
+                        routerLink="/company-edit/{{c.id}}">Modif</a><a class="btn btn-success mr-1" routerLinkActive="active"
+                        routerLink="/account-create/{{c.id}}">+ Compte</a></td>
 
             </tr>
         </tbody>
@@ -65,9 +66,10 @@
                 <td *ngIf="!c.firstName && c.siretNumber">{{c.siretNumber}}</td>
                 <td *ngIf="!c.firstName && c.siretNumber"><a class="btn btn-info mr-1" routerLinkActive="active"
                         routerLink="/client-show/{{c.id}}">Voir</a>
-                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supprimer</a>
+                    <a class="btn btn-danger mr-1" (click)="deleteClient(c.id)">Supp</a>
                     <a class="btn btn-warning mr-1" routerLinkActive="active"
-                        routerLink="/company-edit/{{c.id}}">Modifier</a></td>
+                        routerLink="/company-edit/{{c.id}}">Modif</a><a class="btn btn-success mr-1" routerLinkActive="active"
+                        routerLink="/account-create/{{c.id}}">+ Compte</a></td>
 
             </tr>
         </tbody>

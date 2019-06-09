@@ -28,4 +28,12 @@ export class AccountService {
      updateAccount(account): Observable<Account> {
         return this.http.put<Account>(this.endpoint + '/accounts/' + account.id, JSON.stringify(account), this.httpOptions);
     }
+
+    createAccount(account): Observable<Account> {
+        return this.http.post<Account>(this.endpoint + '/accounts', JSON.stringify(account), this.httpOptions);
+    }
+
+    deleteAccount(id) {
+        return this.http.delete<Account>(this.endpoint + '/accounts/' + id, this.httpOptions);
+    }
 }
