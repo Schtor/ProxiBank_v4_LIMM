@@ -1,0 +1,43 @@
+
+<div >
+   <h1 >Bienvenue chez ProxiBanque</h1> 
+</div>
+<!-- 
+<div class="d-flex justify-content-center">
+<form>
+  <fieldset>
+    <legend> &nbsp; &nbsp; &nbsp; Identification</legend>
+    <div class="form-group col-sm-8 ">
+      <label for="inputLogin">Login</label>
+      <input type="text" class="form-control" id="inputLogin" placeholder="Enter login">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your informations with anyone else.</small>
+    </div>
+    <div class="form-group col-sm-8">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+&nbsp; &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp; <button type="submit" class="btn btn-dark btn-sm justify-content-center " routerLinkActive="active" routerLink="/client-list">Submit</button>
+</fieldset>
+</form>
+</div> -->
+
+<div class="container d-flex justify-content-center" *ngIf="!clientType">
+    <div class="row">
+        <div class="col-md-10 offset-md-3">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                <h3>Identification</h3>
+
+                <label>Login:
+                    <input type="text" formControlName="login">
+                </label>
+
+                <p></p> <label>Password:
+                    <input type="password" formControlName="password">
+                </label>
+<div *ngIf="alert"   class="alert alert-danger" role="alert">Identifiants incorrects</div>
+                 <p></p> <button class="btn btn-dark btn-sm" type="submit" [disabled]="!myForm.valid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

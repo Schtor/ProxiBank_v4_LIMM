@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Edition particulier</h2>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit(selectedCustomer.id, selectedCustomer.accountList)">
+
+                <label>Prenom:
+                    <input value={{selectedCustomer.firstName}} type="text" formControlName="firstName">
+                </label>
+
+                <p></p> <label>Nom:
+                    <input value={{selectedCustomer.lastName}} type="text" formControlName="lastName">
+                </label>
+          
+
+                <p></p> <label>Numero de telephone:
+                    <input value={{selectedCustomer.phone}} type="text" formControlName="phone">
+                </label>
+               <p></p> <label>Email:
+                    <input value={{selectedCustomer.email}} type="text" formControlName="email">
+                </label>
+
+                <p></p> <label>Adresse:
+                    <input value={{selectedCustomer.addressClient}} type="text" formControlName="addressClient">
+                </label>
+               <p></p> <label>Code postal:
+                    <input value={{selectedCustomer.zipCodeClient}} type="text" formControlName="zipCodeClient">
+                </label>
+
+                <p></p> <label>Ville:
+                    <input value={{selectedCustomer.cityClient}} type="text" formControlName="cityClient">
+                </label>
+                
+              <p></p>  <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list" ><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+               &nbsp; <button class="btn btn-warning" type="submit" 
+                    [disabled]="!myForm.valid"><i class="fa fa-pencil-square-o"
+                                aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
