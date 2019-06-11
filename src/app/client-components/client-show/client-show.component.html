@@ -1,0 +1,95 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header" *ngIf="client.lastName">{{client.lastName}} {{client.firstName}} </div>
+    <div class="card-header" *ngIf="client.companyName">{{client.companyName}} {{client.siretNumber}} </div>
+    <div class="card-body">
+        <h5 class="card-title">Informations</h5>
+        <p class="card-text">{{client.phone}}</p>
+        <p class="card-text">{{client.email}}</p>
+        <h5 class="card-title">Adresse</h5>
+        <p class="card-text">{{client.addressClient}}</p>
+        <p class="card-text">{{client.zipCodeClient}} {{client.cityClient}}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-0">
+
+    </div>
+    <div class="col-6" id="parent">
+        <div id="child">
+            <div class="header d-flex justify-content-center">
+                <h3>Liste Comptes Courants</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+        <div class="header d-flex justify-content-center">
+            <h3>Liste Comptes Epargne</h3>
+        </div>
+    </div>
+    <div class="col-1">
+
+
+    </div>
+</div>
+
+<div class="d-flex justify-content-center ">
+    <table class="table col-sm-5">
+        <thead class="thead-light">
+            <tr>
+
+                <th scope="col">Date de creation</th>
+                <th scope="col">Numero de compte</th>
+                <th scope="col">Solde</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let acc of accounts">
+                <tr *ngIf="acc.typeOfAccount=='Current'">
+
+                    <td>{{acc.openingAccountDate |date: 'dd/MM/yyyy'}}</td>
+                    <td>{{acc.accountNumber}}</td>
+                    <td>{{acc.accountBalance}}</td>
+                    <td><a class="btn btn-success mr-1" routerLinkActive="active"
+                            routerLink="/account-show/{{acc.id}}"><i
+                                class="fa fa-eye" aria-hidden="true"></i></a></td>
+
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+
+    <table class="table col-sm-5">
+        <thead class="thead-light">
+            <tr>
+
+                <th scope="col">Date de creation</th>
+                <th scope="col">Numero de compte</th>
+                <th scope="col">Solde</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let acc of accounts">
+                <tr *ngIf="acc.typeOfAccount=='Saving'">
+
+                    <td>{{acc.openingAccountDate| date: 'dd/MM/yyyy'}}</td>
+                    <td>{{acc.accountNumber}}</td>
+                    <td>{{acc.accountBalance}}</td>
+                    <td><a class="btn btn-success mr-1" routerLinkActive="active"
+                            routerLink="/account-show/{{acc.id}}"><i
+                                class="fa fa-eye" aria-hidden="true"></i></a></td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+&nbsp; <button class="btn btn-danger mr-1" (click)="deleteClient(client.id)"><i class="fa fa-trash"
+                                aria-hidden="true"></i></button>

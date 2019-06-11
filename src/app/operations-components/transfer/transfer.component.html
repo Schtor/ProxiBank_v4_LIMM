@@ -1,0 +1,36 @@
+<h3>Veuillez remplir les champs requis :</h3>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+                <label>Compte debiteur:
+                  
+                    <select formControlName="id1">
+                        <option *ngFor="let acc of accounts" [value]="acc.id">{{acc?.accountNumber}} -
+                            {{acc?.client?.firstName}} {{acc?.client?.lastName}}</option>
+                    </select>
+                </label>
+
+                <p></p> <label>Compte crediteur:
+            
+                    <select formControlName="id2">
+                        <option *ngFor="let acc of accounts" [value]="acc.id">{{acc?.accountNumber}} -
+                            {{acc?.client?.firstName}} {{acc?.client?.lastName}}</option>
+                    </select>
+                </label>
+
+
+                <p></p> <label>Montant du virement:
+                    <input type="number" formControlName="amount">
+                </label>
+
+                 <p></p> <a class="btn btn-dark" routerLinkActive="active" routerLink="/client-list"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                &nbsp; <button class="btn btn-success" type="submit" [disabled]="!myForm.valid"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
